@@ -102,27 +102,27 @@
 /**
  * Show GIF image only.
  */
-+ (GIFProgressHUD *)showHUDWithGIFName:(NSString *)gifImage addedToView:(UIView *)view animated:(BOOL)animated;
++ (GIFProgressHUD *)showHUDWithGIFName:(NSString *)gifImage addedToView:(UIView *)view blockUI:(BOOL)blockUI animated:(BOOL)animated;
 
 /**
  * Show GIF image with title.
  */
-+ (GIFProgressHUD *)showHUDWithGIFName:(NSString *)gifImage title:(NSString *)title addedToView:(UIView *)view animated:(BOOL)animated;
++ (GIFProgressHUD *)showHUDWithGIFName:(NSString *)gifImage title:(NSString *)title addedToView:(UIView *)view blockUI:(BOOL)blockUI animated:(BOOL)animated;
 
 /**
  * Show GIF image with title and detail title.
  */
-+ (GIFProgressHUD *)showHUDWithGIFName:(NSString *)gifImage title:(NSString *)title detailTitle:(NSString *)detailTitle addedToView:(UIView *)view animated:(BOOL)animated;
++ (GIFProgressHUD *)showHUDWithGIFName:(NSString *)gifImage title:(NSString *)title detailTitle:(NSString *)detailTitle addedToView:(UIView *)view blockUI:(BOOL)blockUI animated:(BOOL)animated;
 
 /**
  * Show title only.
  */
-+ (GIFProgressHUD *)showHUDWithTitle:(NSString *)title addedToView:(UIView *)view animated:(BOOL)animated;
++ (GIFProgressHUD *)showHUDWithTitle:(NSString *)title addedToView:(UIView *)view blockUI:(BOOL)blockUI animated:(BOOL)animated;
 
 /**
  * Show title and detail title.
  */
-+ (GIFProgressHUD *)showHUDWithTitle:(NSString *)title detailTitle:(NSString *)detailTitle addedToView:(UIView *)view animated:(BOOL)animated;
++ (GIFProgressHUD *)showHUDWithTitle:(NSString *)title detailTitle:(NSString *)detailTitle addedToView:(UIView *)view blockUI:(BOOL)blockUI animated:(BOOL)animated;
 
 /**
  * Hide the HUD.

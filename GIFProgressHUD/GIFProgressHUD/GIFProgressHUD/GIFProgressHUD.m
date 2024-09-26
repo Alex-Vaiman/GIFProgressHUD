@@ -23,7 +23,7 @@ static CGFloat const kDefaultGIFImageSize = 80;
 @property (strong, nonatomic) GIFImageView *gifImageView;
 
 // View Creation Methods
-+ (GIFProgressHUD *)gifViewWithGIFImageView:(GIFImageView *)gifImageView title:(NSString *)title detailTitle:(NSString *)detailTitle;
++ (GIFProgressHUD *)gifViewWithGIFImageView:(GIFImageView *)gifImageView title:(NSString *)title detailTitle:(NSString *)detailTitle blockUI:(BOOL)blockUI;
 - (void)setupContainerView;
 
 // Show and Hide Methods
@@ -76,29 +76,31 @@ static CGFloat const kDefaultGIFImageSize = 80;
 
 #pragma mark - Factory Methods
 
-+ (GIFProgressHUD *)showHUDWithGIFName:(NSString *)gifImage addedToView:(UIView *)view animated:(BOOL)animated {
-    return [self showHUDWithGIFName:gifImage title:@"" detailTitle:@"" addedToView:view animated:animated];
++ (GIFProgressHUD *)showHUDWithGIFName:(NSString *)gifImage addedToView:(UIView *)view blockUI:(BOOL)blockUI animated:(BOOL)animated {
+    return [self showHUDWithGIFName:gifImage title:@"" detailTitle:@"" addedToView:view blockUI:blockUI animated:animated];
 }
 
-+ (GIFProgressHUD *)showHUDWithGIFName:(NSString *)gifImage title:(NSString *)title addedToView:(UIView *)view animated:(BOOL)animated {
-    return [self showHUDWithGIFName:gifImage title:title detailTitle:@"" addedToView:view animated:animated];
++ (GIFProgressHUD *)showHUDWithGIFName:(NSString *)gifImage title:(NSString *)title addedToView:(UIView *)view blockUI:(BOOL)blockUI animated:(BOOL)animated {
+    return [self showHUDWithGIFName:gifImage title:title detailTitle:@"" addedToView:view blockUI:blockUI animated:animated];
 }
 
-+ (GIFProgressHUD *)showHUDWithTitle:(NSString *)title addedToView:(UIView *)view animated:(BOOL)animated {
-    return [self showHUDWithGIFName:nil title:title detailTitle:@"" addedToView:view animated:animated];
++ (GIFProgressHUD *)showHUDWithTitle:(NSString *)title addedToView:(UIView *)view blockUI:(BOOL)blockUI animated:(BOOL)animated {
+    return [self showHUDWithGIFName:nil title:title detailTitle:@"" addedToView:view blockUI:blockUI animated:animated];
 }
 
-+ (GIFProgressHUD *)showHUDWithTitle:(NSString *)title detailTitle:(NSString *)detailTitle addedToView:(UIView *)view animated:(BOOL)animated {
-    return [self showHUDWithGIFName:nil title:title detailTitle:detailTitle addedToView:view animated:animated];
++ (GIFProgressHUD *)showHUDWithTitle:(NSString *)title detailTitle:(NSString *)detailTitle addedToView:(UIView *)view blockUI:(BOOL)blockUI animated:(BOOL)animated {
+    return [self showHUDWithGIFName:nil title:title detailTitle:detailTitle addedToView:view blockUI:blockUI animated:animated];
 }
 
-+ (GIFProgressHUD *)showHUDWithGIFName:(NSString *)gifImage title:(NSString *)title detailTitle:(NSString *)detailTitle addedToView:(UIView *)view animated:(BOOL)animated {
++ (GIFProgressHUD *)showHUDWithGIFName:(NSString *)gifImage title:(NSString *)title detailTitle:(NSString *)detailTitle addedToView:(UIView *)view blockUI:(BOOL)blockUI animated:(BOOL)animated {
     
     // Get gif image.
     GIFImageView *gifImageView = [GIFImageView gifImageViewWithGIFName:gifImage];
     
     // Get gif view.
-    GIFProgressHUD *gifProgressHUD = [GIFProgressHUD gifViewWithGIFImageView:gifImageView title:title detailTitle:detailTitle];
+    GIFProgressHUD *gifProgressHUD = [GIFProgressHUD gifViewWithGIFImageView:gifImageView title:title detailTitle:detailTitle blockUI:blockUI];
+
+    gifImageView.userInteractionEnabled = blockUI;
     
     // Add gif to view with animation (if any).
     [gifProgressHUD addToView:view animated:animated];
@@ -110,10 +112,11 @@ static CGFloat const kDefaultGIFImageSize = 80;
 
 #pragma mark - View Creation Methods
 
-+ (GIFProgressHUD *)gifViewWithGIFImageView:(GIFImageView *)gifImageView title:(NSString *)title detailTitle:(NSString *)detailTitle {
++ (GIFProgressHUD *)gifViewWithGIFImageView:(GIFImageView *)gifImageView title:(NSString *)title detailTitle:(NSString *)detailTitle blockUI:(BOOL)blockUI {
     
     // Make a GIF view.
     GIFProgressHUD *gifProgressHUD = [[GIFProgressHUD alloc] init];
+    gifImageView.userInteractionEnabled = blockUI;
     
     // Setting up the transparent view.
     gifProgressHUD.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);

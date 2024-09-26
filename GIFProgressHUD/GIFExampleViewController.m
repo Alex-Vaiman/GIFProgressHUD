@@ -49,7 +49,7 @@
 
 - (IBAction)hudWithGIFSelected:(UIButton *)sender {
     
-    GIFProgressHUD *hud = [GIFProgressHUD showHUDWithGIFName:@"gears" addedToView:self.view animated:YES];
+    GIFProgressHUD *hud = [GIFProgressHUD showHUDWithGIFName:@"gears" addedToView:self.view blockUI:YES animated:YES];
     
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         [self wait];
@@ -60,7 +60,7 @@
 }
 
 - (IBAction)hudWithGIFAndTitleSelected:(UIButton *)sender {
-    GIFProgressHUD *hud = [GIFProgressHUD showHUDWithGIFName:@"gears" title:@"Loading..." addedToView:self.view animated:YES];
+    GIFProgressHUD *hud = [GIFProgressHUD showHUDWithGIFName:@"gears" title:@"Loading..." addedToView:self.view  blockUI:YES animated:YES];
     
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         [self wait];
@@ -71,7 +71,7 @@
 }
 
 - (IBAction)hudWithGIFAndTitleAndDetailTitleSelected:(UIButton *)sender {
-    GIFProgressHUD *hud = [GIFProgressHUD showHUDWithGIFName:@"gears" title:@"Loading..." detailTitle:@"Please wait.\n Thanks for your patience." addedToView:self.view animated:YES];
+    GIFProgressHUD *hud = [GIFProgressHUD showHUDWithGIFName:@"gears" title:@"Loading..." detailTitle:@"Please wait.\n Thanks for your patience." addedToView:self.view  blockUI:YES animated:YES];
     
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         [self wait];
@@ -82,7 +82,7 @@
 }
 
 - (IBAction)hudWithGIFWithProgressExampleSelected:(UIButton *)sender {
-    GIFProgressHUD *hud = [GIFProgressHUD showHUDWithGIFName:@"gears" title:@"Loading..." detailTitle:@"Please wait\n (0/100)." addedToView:self.view animated:YES];
+    GIFProgressHUD *hud = [GIFProgressHUD showHUDWithGIFName:@"gears" title:@"Loading..." detailTitle:@"Please wait\n (0/100)." addedToView:self.view  blockUI:YES animated:YES];
     
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         for (NSInteger i = 1; i <= 100; i++) {
@@ -99,7 +99,7 @@
 }
 
 - (IBAction)customHUDSelected:(UIButton *)sender {
-    GIFProgressHUD *hud = [GIFProgressHUD showHUDWithGIFName:@"gears" title:@"Loading..." detailTitle:@"Please wait.\n Thanks for your patience." addedToView:self.view animated:YES];
+    GIFProgressHUD *hud = [GIFProgressHUD showHUDWithGIFName:@"gears" title:@"Loading..." detailTitle:@"Please wait.\n Thanks for your patience." addedToView:self.view  blockUI:YES animated:YES];
     hud.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.5];
     hud.containerColor = [UIColor colorWithRed:0.0 green:0.0 blue:1.0 alpha:0.5];
     hud.containerCornerRadius = 10;
@@ -120,7 +120,7 @@
 }
 
 - (IBAction)justLabelSelected:(UIButton *)sender {
-    GIFProgressHUD *hud = [GIFProgressHUD showHUDWithTitle:@"Hey!" addedToView:self.view animated:NO];
+    GIFProgressHUD *hud = [GIFProgressHUD showHUDWithTitle:@"Hey!" addedToView:self.view  blockUI:YES animated:NO];
     
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         [self wait];
@@ -131,7 +131,7 @@
 }
 
 - (IBAction)labelAndDetailLabelSelected:(UIButton *)sender {
-    GIFProgressHUD *hud = [GIFProgressHUD showHUDWithTitle:@"Hey!" detailTitle:@"How are you?" addedToView:self.view animated:NO];
+    GIFProgressHUD *hud = [GIFProgressHUD showHUDWithTitle:@"Hey!" detailTitle:@"How are you?" addedToView:self.view  blockUI:YES animated:NO];
     
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         [self wait];
